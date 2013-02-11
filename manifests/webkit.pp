@@ -1,11 +1,15 @@
-class capybara::webkit {
+class capybara::webkit($ensure = 'latest') {
 
-  include capybara, capybara::webkit::dependencies
+  include capybara
+
+  class {'capybara::webkit::dependencies':
+    ensure => $ensure,
+  }
 
   package { ['capybara-webkit', 'headless']:
-    ensure => latest,
+    ensure   => $ensure,
     provider => gem,
-    require => Class['capybara', 'capybara::webkit::dependencies'],
+    require  => Class['capybara', 'capybara::webkit::dependencies'],
   }
 }
 
