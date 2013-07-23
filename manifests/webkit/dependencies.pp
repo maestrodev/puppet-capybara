@@ -1,11 +1,11 @@
-class capybara::webkit::dependencies($ensure = 'latest') {
+class capybara::webkit::dependencies {
 
-  if ! defined(Package['gcc'])                  { package { 'gcc':                  ensure => $ensure } }
-  if ! defined(Package['gcc-c++'])              { package { 'gcc-c++':              ensure => $ensure } }
-  if ! defined(Package['make'])                 { package { 'make':                 ensure => $ensure } }
-  if ! defined(Package['qtwebkit'])             { package { 'qtwebkit':             ensure => $ensure } }
-  if ! defined(Package['qtwebkit-devel'])       { package { 'qtwebkit-devel':       ensure => $ensure } }
-  if ! defined(Package['xorg-x11-server-Xvfb']) { package { 'xorg-x11-server-Xvfb': ensure => $ensure } }
+  if ! defined(Package['gcc'])                  { package { 'gcc':                  ensure => installed } }
+  if ! defined(Package['gcc-c++'])              { package { 'gcc-c++':              ensure => installed } }
+  if ! defined(Package['make'])                 { package { 'make':                 ensure => installed } }
+  if ! defined(Package['qtwebkit'])             { package { 'qtwebkit':             ensure => installed } }
+  if ! defined(Package['qtwebkit-devel'])       { package { 'qtwebkit-devel':       ensure => installed } }
+  if ! defined(Package['xorg-x11-server-Xvfb']) { package { 'xorg-x11-server-Xvfb': ensure => installed } }
 
   file { "/usr/bin/qmake":
     ensure => "/usr/bin/qmake-qt4",
