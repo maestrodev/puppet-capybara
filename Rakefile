@@ -1,7 +1,13 @@
-require 'rake'
+require 'bundler'
+Bundler.require(:rake)
+require 'rake/clean'
 
-require 'rspec/core/rake_task'
+CLEAN.include('spec/fixtures/', 'doc', 'pkg')
+CLOBBER.include('.tmp', '.librarian')
 
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = 'spec/*/*_spec.rb'
-end
+require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet_blacksmith/rake_tasks'
+
+PuppetLint.configuration.send("disable_80chars")
+
+task :default => [:clean, :spec]
