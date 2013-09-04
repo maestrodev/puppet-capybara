@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'capybara' do
   
   it { should contain_package('capybara').with({
-    :ensure => 'latest',
+    :ensure => 'present',
     :provider => 'gem'
    })}
    

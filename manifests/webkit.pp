@@ -1,4 +1,4 @@
-class capybara::webkit($ensure = 'latest') {
+class capybara::webkit($ensure = 'present') {
 
   include capybara
 

@@ -3,12 +3,12 @@ require 'spec_helper'
 describe 'capybara::webkit' do
   
   it { should contain_package('capybara-webkit').with({
-    :ensure => 'latest',
+    :ensure => 'present',
     :provider => 'gem'
    })}
 
    it { should contain_package('headless').with({
-     :ensure => 'latest',
+     :ensure => 'present',
      :provider => 'gem'
     })}
 
